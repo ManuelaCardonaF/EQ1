@@ -1,0 +1,1 @@
+select top(10)* from InterfaceAX.TerceroAX where  TipoIdentificacion=2

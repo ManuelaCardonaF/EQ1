@@ -1,0 +1,1913 @@
+CodigoTipoContrato: FACTORING # Nombre: FACTORING CXC Y CXP
+Descripcion: TIPO CONTRATO PARA FACTORING CXC Y CXP
+Empresa: SISTECREDITO
+TiposTransaccion:
+- CodigoTipoTransaccion: CREDITALI
+  Nombre: Creditos en Aliados
+  Descripcion: Creditos Generados en Aliados Acumulados
+  NombreDiarioContable: 13-CGA
+  NumeroDeDiario: ""
+  DescripcionDiarioContable: "CRÉDITOS ALIADOS - FECHA {Fecha}"
+  RegistrarYTransferir: !!bool true
+  EmpresaDiario: STCR
+  TiposLinea:
+  - CodigoTipoLinea: CONTAB1
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 86050503
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorCreditoAliado # ValorCreditoTotaldelAliado total de Credito por dia 
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ALIADOS|CRÉDITOS ACUMULADOS-FECHA: {Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: PROV2
+    Nombre: Linea Proveedor
+    Descripcion: Linea Proveedor
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha # Fechade creación del credito
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Proveedor
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: NitAliado #No esta en el Ymal de CXC CXP
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto 
+      Valor: ValorPagadoAliado # Valor de recaudo por dia menos el descuento de negociacion
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ALIADOS|CRÉDITOS ACUMULADOS-FECHA: {Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: PerfilDeContabilizacion
+      Valor: CREDITO
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: CONTAB3
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 41503501
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool True
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null 
+    - Nombre: ValorConcepto
+      Valor: ValorDescuentoNegociacion # descuento de negociacion 
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ALIADOS|CRÉDITOS ACUMULADOS-FECHA: {Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+- CodigoTipoTransaccion: ANULCREDITALI
+  Nombre: Creditos Anulados en Aliados
+  Descripcion: Creditos Anulados Generados en Aliados Acumulados
+  NombreDiarioContable: 16-ACA
+  NumeroDeDiario: ""
+  DescripcionDiarioContable: "CRÉDITOS ALIADOS ANULADOS - FECHA {Fecha}"
+  RegistrarYTransferir: !!bool true
+  EmpresaDiario: STCR
+  TiposLinea:
+  - CodigoTipoLinea: PROV4
+    Nombre: Linea Proveedor
+    Descripcion: Linea Proveedor
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha # Fechade creación del credito
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Proveedor
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: NitAliado #No esta en el Ymal de CXC CXP
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto 
+      Valor: ValorAnulPagadoAliado # Valor de recaudo por dia menos el descuento de negociacion
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ANULL ALIADOS|CRÉDITOS ANULADOS ACUMULADOS-FECHA:{Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: PerfilDeContabilizacion
+      Valor: CREDITO
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: CONTAB5
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 41503501
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool True
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null 
+    - Nombre: ValorConcepto
+      Valor: ValorAnulDescuentoNegociacion # descuento de negociacion 
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ANULL ALIADOS|CRÉDITOS ANULADOS ACUMULADOS-FECHA:{Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: CONTAB6
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 86050503
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorAnulCreditoAliado # ValorCreditoTotaldelAliado total de Credito por dia 
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ANULL ALIADOS|CRÉDITOS ANULADOS ACUMULADOS-FECHA:{Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+- CodigoTipoTransaccion: PAGOAALI #identificador 
+  Nombre: Pago al Aliado
+  Descripcion: Pagos que realiza SisteCredito al Aliado
+  NombreDiarioContable: 02-EGRE
+  NumeroDeDiario: ""
+  DescripcionDiarioContable: "PAGOS A ALIADOS - FECHA {Fecha}"
+  LímiteLineasDiarioContable: !!int 200
+  RegistrarYTransferir: !!bool true
+  EmpresaDiario: STCR
+  TiposLinea:
+  - CodigoTipoLinea: PROV7
+    Nombre: Proveedor
+    Descripcion: Cuenta Proveedor
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true # agrupo texto
+      Acumula: !!bool false # acumulo numeros
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: null
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Proveedor
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: PerfilDeContabilizacion
+      Valor: CREDITO
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "{NombreAliado}|PAGO A ALIADOS"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorPagoAAli
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: BANC8
+    Nombre: Linea Banco
+    Descripcion: Linea Banco
+    Columnas:
+    - Nombre: FechaDocumento    
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: null
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Banco
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: NombreBanco
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[FLUJOSEFECTIVO]
+      Valor: EO_PAGALM
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null   
+    - Nombre: Descripcion
+      Valor: "{NombreAliado}|PAGO A ALIADOS"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorPagoAAli
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+- CodigoTipoTransaccion: NOTCREDCXP
+  Nombre: Notas Credito CXP
+  Descripcion: "Diario de notas credito cuentas por pagar" 
+  NombreDiarioContable: 10-NCRC
+  NumeroDeDiario: ""
+  DescripcionDiarioContable:  NOTAS CREDITOS CXP - FECHA {Fecha}
+  RegistrarYTransferir: !!bool false
+  EmpresaDiario: STCR
+  TiposLinea:
+  - CodigoTipoLinea: CONTAB9
+    Nombre: Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true 
+      ValorCuandoEsNulo: "" 
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 96050503
+      ValorDesdeVariable: !!bool false 
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "{NombreAliado}|FACTORING NOTAS CREDITOS" 
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto 
+      Valor: ValorNotasCreditosCXP
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: PROV10
+    Nombre: Proveedor
+    Descripcion: Linea Proveedor
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Proveedor
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: PerfilDeContabilizacion
+      Valor: CREDITO
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "{NombreAliado}|FACTORING NOTAS CREDITOS"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto 
+      Valor: ValorNotasCreditosCXP
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+- CodigoTipoTransaccion: PAGOALIANULPARC
+  Nombre: Pagos Aliados Anull Parcial 
+  Descripcion: "Diario de Anulación Parcial de Pago a Aliados  " 
+  NombreDiarioContable: 02-EGRE 
+  NumeroDeDiario: ""
+  DescripcionDiarioContable: PAGOS A ALIADOS ANULL PARCIAL - FECHA {Fecha}
+  RegistrarYTransferir: !!bool true
+  EmpresaDiario: STCR
+  TiposLinea:
+  - CodigoTipoLinea: PROV11
+    Nombre: Proveedor
+    Descripcion: Linea Proveedor
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha   
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Proveedor
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool True
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto   
+      Valor: ValorAnulParcialPagadoAliado
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "{NombreAliado}|ANULL PARCIAL ALIADOS" 
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: PerfilDeContabilizacion
+      Valor: CREDITO
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: CONTAB12
+    Nombre: Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 86050505
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorAnulParcialPagadoAliado
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "{NombreAliado}|ANULL PARCIAL ALIADOS" 
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+- CodigoTipoTransaccion: NOTDEBCXP 
+  Nombre: Notas debito CXP
+  Descripcion: "Diario de notas debito cuentas por pagar" 
+  NombreDiarioContable: 11-NDBP
+  NumeroDeDiario: ""
+  DescripcionDiarioContable:  NOTAS DEBITOS CXP -  FECHA {Fecha}
+  RegistrarYTransferir: !!bool false
+  EmpresaDiario: STCR
+  TiposLinea:
+  - CodigoTipoLinea: PROV13
+    Nombre: Linea Proveedor
+    Descripcion: Linea Proveedor
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true 
+      ValorCuandoEsNulo: "" 
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Proveedor
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool True
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: NitAliado
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: PerfilDeContabilizacion
+      Valor: CREDITO
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "{NombreAliado}|FACTORING NOTAS DEBITOS" 
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto 
+      Valor: ValorNotaDebitoCXP
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: CONTAB14
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 96050503
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "{NombreAliado}|FACTORING NOTAS DEBITOS" 
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto 
+      Valor: ValorNotaDebitoCXP
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool false
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+- CodigoTipoTransaccion: CREDITREF
+  Nombre: Creditos Refinanciados de Clientes
+  Descripcion: Creditos Acumulados Refinanciados de Clientes
+  NombreDiarioContable: 13-CGA 
+  NumeroDeDiario: ""
+  DescripcionDiarioContable: "CRÉDITOS REFINANCIACIÓN - FECHA {Fecha}"
+  RegistrarYTransferir: !!bool false
+  EmpresaDiario: STCR
+  TiposLinea:
+  - CodigoTipoLinea: CONTAB17
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 86050503
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorRefinanciacionAcum
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "REFINANCIACIÓN|CRÉDITOS ACUMULADOS-FECHA: {Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: CONTAB18
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 86050504
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorRefinanciacionAcum
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "REFINANCIACIÓN|CRÉDITOS ACUMULADOS-FECHA: {Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+- CodigoTipoTransaccion: CREDITCLI
+  Nombre: Creditos en Clientes
+  Descripcion: Creditos Clientes Acumulados
+  NombreDiarioContable: 13-CGA 
+  NumeroDeDiario: ""
+  DescripcionDiarioContable: CRÉDITOS CLIENTES - FECHA {Fecha}
+  RegistrarYTransferir: !!bool true
+  EmpresaDiario: STCR
+  TiposLinea:
+  - CodigoTipoLinea: CONTAB19
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 13050501
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: 222222222
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null 
+    - Nombre: ValorConcepto
+      Valor: ValorCredAliado
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ALIADOS|CRÉDITOS ACUMULADOS-FECHA: {Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: CONTAB20
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 13050501
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: 222222222
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorRef
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "REFINANCIACIÓN|CRÉDITOS ACUMULADOS-FECHA: {Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: CONTAB21
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 86050503
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorPagado
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "CRÉDITOS ACUMULADOS-FECHA: {Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+- CodigoTipoTransaccion: ANULCREDITCLIEN
+  Nombre: Creditos Clientes Anulados
+  Descripcion: Creditos Anulados En Clientes
+  NombreDiarioContable: 16-ACA
+  NumeroDeDiario: ""
+  DescripcionDiarioContable: "CRÉDITOS CLIENTES ANULADOS- FECHA {Fecha}"
+  RegistrarYTransferir: !!bool true
+  EmpresaDiario: STCR
+  TiposLinea:
+  - CodigoTipoLinea: CONTAB22
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor:  86050503
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorAnulCrediCliente
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ANULL ALIADOS|CRÉDITOS ANULADOS ACUMULADOS-FECHA: {Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: CONTAB23
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 13050501
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: 222222222
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorAnulCrediCliente
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ANULL ALIADOS|CRÉDITOS ANULADOS ACUMULADOS-FECHA:{Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: CONTAB24
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 86050503
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorAnulCrediGaran
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ANULL GARANTIAS|CRÉDITOS ANULADOS ACUMULADOS-FECHA: {Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: PROV25
+    Nombre: Linea Proveedor
+    Descripcion: Linea Proveedor
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Proveedor
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: NitDeAvalRed
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: NitDeAvalRed
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: PerfilDeContabilizacion
+      Valor: GAR_COB
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto
+      Valor: ValorAnulCrediGaran
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ANULL GARANTIAS|CRÉDITOS ANULADOS ACUMULADOS-FECHA: {Fecha}"
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool false
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+- CodigoTipoTransaccion: AVLRGARANTIASPAGADAS
+  Nombre: Creditos pasado aval pagados
+  Descripcion: "Diario garantias pagadas" 
+  NombreDiarioContable: 19-GARP 
+  NumeroDeDiario: ""
+  DescripcionDiarioContable: CREDITOS PASADO AVAL PAGADOS - FECHA {Fecha}
+  RegistrarYTransferir: !!bool true
+  EmpresaDiario: AVLR
+  TiposLinea:
+  - CodigoTipoLinea: CLIENT27
+    Nombre: Linea Cliente
+    Descripcion: Linea Cliente
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Cliente
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: NitSistecredito
+      ValorDesdeVariable: !!bool True
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: NitSistecredito
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: PerfilDeContabilizacion
+      Valor: PCGENERAL
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "CREDITOS PASADO AVAL PAGADOS|ACUMULADOS: {Fecha}" 
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto 
+      Valor: ValorGarantiasPagadas
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: CONTAB26
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 61509501
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: 222222222
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "CREDITOS PASADO AVAL PAGADOS|ACUMULADOS: {Fecha}" 
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto 
+      Valor: ValorGarantiasPagadas
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null    
+- CodigoTipoTransaccion: AVLRGARANTIASPAGADASANUL
+  Nombre: Creditos pasado aval pagados anulado
+  Descripcion: "Diario garantias pagadas anuladas" 
+  NombreDiarioContable: 19-GARP
+  NumeroDeDiario: ""
+  DescripcionDiarioContable: "CREDITOS PASADO AVAL PAGADOS ANULADOS - FECHA: {Fecha}"
+  RegistrarYTransferir: !!bool true
+  EmpresaDiario: AVLR
+  TiposLinea:
+  - CodigoTipoLinea: CLIENT28
+    Nombre: Linea Cliente
+    Descripcion: Linea Cliente
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Cliente
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: NitSistecredito
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: NitSistecredito
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: PerfilDeContabilizacion
+      Valor: PCGENERAL
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ANULL GARANTIAS|CRÉDITOS ANULADOS ACUMULADOS FECHA: {Fecha}" 
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto 
+      Valor: ValorGarantiasPagadasAnull
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Debito
+    - Nombre: NaturalezaContable
+      Valor: Debito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+  - CodigoTipoLinea: CONTAB29
+    Nombre: Linea Contabilidad
+    Descripcion: Linea Contabilidad
+    Columnas:
+    - Nombre: FechaDocumento
+      Valor: Fecha
+      ValorDesdeVariable: !!bool true
+      Tipo: DateTime
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: TipoCuenta
+      Valor: Contabilidad
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Cuenta
+      Valor: 61509501
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Dimension[TERCERO]
+      Valor: 222222222
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: Descripcion
+      Valor: "ANULL GARANTIAS|CRÉDITOS ANULADOS ACUMULADOS: {Fecha}" 
+      ValorDesdeVariable: !!bool true
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
+    - Nombre: ValorConcepto 
+      Valor: ValorGarantiasPagadasAnull
+      ValorDesdeVariable: !!bool true
+      Tipo: Decimal
+      Agrupa: !!bool false
+      Acumula: !!bool true
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: Credito
+    - Nombre: NaturalezaContable
+      Valor: Credito
+      ValorDesdeVariable: !!bool false
+      Tipo: String
+      Agrupa: !!bool true
+      Acumula: !!bool false
+      EsObligatorio: !!bool true
+      ValorCuandoEsNulo: ""
+      NaturalezaContable: null
